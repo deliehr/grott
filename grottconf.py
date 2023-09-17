@@ -441,7 +441,7 @@ class Conf :
         if os.getenv('ginverterid') != None :  self.inverterid = self.getenv('ginverterid')
         if os.getenv('ggrottip') != None : 
             try: 
-                ipaddress.ip_address(os.getenv('ggrottip'))
+                #ipaddress.ip_address(os.getenv('ggrottip'))
                 self.grottip = self.getenv('ggrottip')
             except: 
                 if self.verbose : print("\nGrott IP address env invalid")
@@ -451,7 +451,7 @@ class Conf :
             if 0 <= int(os.getenv('gvalueoffset')) <= 255  :  self.valueoffset = self.getenv('gvalueoffset')
         if os.getenv('ggrowattip') != None :    
             try: 
-                ipaddress.ip_address(os.getenv('ggrowattip'))
+                #ipaddress.ip_address(os.getenv('ggrowattip'))
                 self.growattip = self.getenv('ggrowattip')
             except: 
                 if self.verbose : print("\nGrott Growatt server IP address env invalid")
@@ -463,7 +463,7 @@ class Conf :
         if os.getenv('gnomqtt') != None :  self.nomqtt = self.getenv('gnomqtt')
         if os.getenv('gmqttip') != None :    
             try: 
-                ipaddress.ip_address(os.getenv('gmqttip'))
+                #ipaddress.ip_address(os.getenv('gmqttip'))
                 self.mqttip = self.getenv('gmqttip')
             except: 
                 if self.verbose : print("\nGrott MQTT server IP address env invalid")
@@ -497,7 +497,7 @@ class Conf :
         if os.getenv('gifdbname') != None :  self.ifdbname = self.getenv('gifdbname')
         if os.getenv('gifip') != None :    
             try: 
-                ipaddress.ip_address(os.getenv('gifip'))
+                #ipaddress.ip_address(os.getenv('gifip'))
                 self.ifip = self.getenv('gifip')
             except: 
                 if self.verbose : print("\nGrott InfluxDB server IP address env invalid")
