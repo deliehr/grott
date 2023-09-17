@@ -607,16 +607,20 @@ def procdata(conf,data):
             local = int(time.timezone/3600)
             #print(local)
 
-        if conf.tmzone == "local": 
-           curtz = time.timezone 
-           utc_dt = datetime.strptime (jsondate, "%Y-%m-%dT%H:%M:%S") + timedelta(seconds=curtz) 
-        else :      
-            naive = datetime.strptime (jsondate, "%Y-%m-%dT%H:%M:%S")
-            local_dt = local.localize(naive, is_dst=None)
-            utc_dt = local_dt.astimezone(pytz.utc)
+        #if conf.tmzone == "local":
+        #   curtz = time.timezone
+        #   utc_dt = datetime.strptime (jsondate, "%Y-%m-%dT%H:%M:%S") + timedelta(seconds=curtz)
+        #else :
+        #    naive = datetime.strptime (jsondate, "%Y-%m-%dT%H:%M:%S")
+        #    local_dt = local.localize(naive, is_dst=None)
+        #    utc_dt = local_dt.astimezone(pytz.utc)
+
+        naive = datetime.strptime(jsondate, "%Y-%m-%dT%H:%M:%S")
+        local_dt = local.localize(naive, is_dst=None)
+        utc_dt = local_dt.astimezone(pytz.utc)
         
         ifdt = utc_dt.strftime ("%Y-%m-%dT%H:%M:%S")
-        if conf.verbose :  print("\t - " + "Grott original time : ",jsondate,"adjusted UTC time for influx : ",ifdt)
+        if conf.verbose :  print("\t - " + "Grott original time : ",jsondate,"NOT-adjusted UTC time for influx : ",ifdt)
     
         # prepare influx jsonmsg dictionary    
 
