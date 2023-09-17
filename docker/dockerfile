@@ -1,3 +1,5 @@
+# grott 2.8.2 -> registry.api.liehr.app/grott:1
+
 FROM python:3.7-slim
 
 ENV LANG en_US.UTF-8
@@ -20,7 +22,7 @@ COPY grottconf.py /app/grottconf.py
 COPY grottdata.py /app/grottdata.py
 COPY grottproxy.py /app/grottproxy.py
 COPY grottsniffer.py /app/grottsniffer.py
-COPY grott.ini /app/grott.ini
+#COPY grott.ini /app/grott.ini
 
 WORKDIR /app
 CMD ["python", "-u", "grott.py", "-v"]
