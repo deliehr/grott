@@ -1,6 +1,7 @@
 # grott 2.8.2 -> registry.api.liehr.app/grott:1
 
 FROM python:3.7-slim
+#FROM python:3.12-slim
 
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
@@ -12,10 +13,12 @@ RUN apt-get clean && apt-get update && apt-get upgrade -y
 RUN apt-get install -y locales && locale-gen en_US.UTF-8
 
 #Install required python packages 
+RUN pip install --upgrade pip
 RUN pip install paho-mqtt
 RUN pip install requests 
 RUN pip install influxdb
 RUN pip install influxdb-client 
+#RUN pip install libscrc
 
 COPY grott.py /app/grott.py
 COPY grottconf.py /app/grottconf.py
